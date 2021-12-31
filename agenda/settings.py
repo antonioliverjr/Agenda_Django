@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 """
 
 from pathlib import Path
+from django.contrib.messages import constants
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -122,8 +123,19 @@ STATICFILES_DIRS = [
     ('static', BASE_DIR / 'templates/static'),
     ('node_modules', BASE_DIR / 'node_modules')
 ]
+MEDIA_ROOT = BASE_DIR / 'media'
+MEDIA_URL = 'media/'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# Mensagens
+
+MESSAGE_TAGS = {
+    constants.SUCCESS: 'alert-success',
+    constants.ERROR: 'alert-danger',
+    constants.WARNING: 'alert-warning',
+    constants.INFO: 'alert-info'
+}
