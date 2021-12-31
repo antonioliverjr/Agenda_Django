@@ -9,7 +9,8 @@ class ContatoAdmin(admin.ModelAdmin):
         'sobrenome',
         'telefone',
         'email',
-        'categoria'
+        'categoria',
+        'ativo'
     )
 
     list_display_links = (
@@ -26,6 +27,11 @@ class ContatoAdmin(admin.ModelAdmin):
     search_fields = (
         'nome',
         'telefone'
+    )
+
+    list_editable = (
+        'telefone',
+        'ativo'
     )
 
     list_per_page = 15

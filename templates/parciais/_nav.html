@@ -2,6 +2,11 @@
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
     <div class="container">
       <a class="navbar-brand" href="{% url 'index' %}">Agenda</a>
+      <form method="get" action="{% url 'buscar' %}">
+        <div class="form-outline">
+          <input id="search" type="search" class="form-control" placeholder="Pesquisar" value="{{ termo }}" name="termo">
+        </div>
+      </form>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
         aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>

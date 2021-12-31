@@ -1,11 +1,12 @@
 {% extends 'base.html' %}
 
 {% block conteudo %}
-<h1 class="mt-5 text-center">Minha agenda</h1>
+<h1 class="mt-5">Minha agenda</h1>
 
 <table class="table table-primary text-center">
   <thead>
     <tr>
+      <th>Id</th>
       <th>Nome</th>
       <th>Sobrenome</th>
       <th>Telefone</th>
@@ -14,15 +15,42 @@
   </thead>
   <tbody>
     {% for contato in contatos %}
-    <tr>
-      <td>
-        <a href="{% url 'visualizar_contato' contato.id %}">{{ contato.nome }}</a>
-      </td>
-      <td>{{ contato.sobrenome }}</td>
-      <td>{{ contato.telefone }}</td>
-      <td>{{ contato.categoria }}</td>
-    </tr>
+      <tr>
+        <td>
+          <a href="{% url 'visualizar_contato' contato.id %}">{{ contato.id }}</a>
+        </td>
+        <td>
+          <a href="{% url 'visualizar_contato' contato.id %}">{{ contato.nome }}</a>
+        </td>
+        <td>{{ contato.sobrenome }}</td>
+        <td>{{ contato.telefone }}</td>
+        <td>{{ contato.categoria }}</td>
+      </tr>
     {% endfor %}
   </tbody>
 </table>
+
+{% if contatos.paginator.num_pages > 1 %}
+  <nav aria-label="Page navigation">
+    <ul class="pagination pagination-sm justify-content-center">
+      <li class="page-item">
+        <a class="page-link bg-light" href="?pag=1" aria-label="Previous">
+          <span aria-hidden="true">&laquo;</span>
+        </a>
+      </li>
+      {% for pagina in contatos.paginator.page_range %}
+        {% if contatos.number == pagina %}
+          <li class="page-item active"><a class="page-link" href="?pag={{ pagina }}">{{ pagina }}</a></li>
+        {% else %}
+          <li class="page-item"><a class="page-link" href="?pag={{ pagina }}">{{ pagina }}</a></li>
+        {% endif %}
+      {% endfor %}
+      <li class="page-item">
+        <a class="page-link bg-light" href="?pag={{ contatos.paginator.num_pages }}" aria-label="Next">
+          <span aria-hidden="true">&raquo;</span>
+        </a>
+      </li>
+    </ul>
+  </nav>
+{% endif %}
 {% endblock %}
