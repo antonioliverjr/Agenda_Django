@@ -1,4 +1,5 @@
-from django.shortcuts import render, HttpResponseRedirect, get_object_or_404, Http404
+from django.shortcuts import render, HttpResponseRedirect
+# get_object_or_404, Http404 (Substuidos pelo sistema de mensagem)
 from django.core.paginator import Paginator
 from .models import Contato
 from django.db.models import Q, Value
@@ -37,6 +38,7 @@ def view(request, id_contato):
         'contatos/view.html',
         {'contato': contato}
     )
+
 
 def search(request):
     termo = request.GET.get('termo')
