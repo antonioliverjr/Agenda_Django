@@ -1,5 +1,4 @@
 {% load static %}
-
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -7,7 +6,10 @@
   {% include 'parciais/_head.html' %}
 </head>
 <body>
-  {% include 'parciais/_nav.html' %}
+  <h1 class="text-center mt-2 mb-5">{% block titulo %} {% endblock %}</h1>
+  {% if not 'accounts' in request.path or 'dashboard' in request.path %}
+    {% include 'parciais/_nav.html' %}
+  {% endif %}
   <!-- Page Content -->
   <div class="container">
     <div class="row">

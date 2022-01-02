@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block titulo %} Cadastro {% endblock %}
+
+{% block conteudo %}
+
+<div class="container col-9">
+    {% include 'parciais/_error_forms.html' %}
+    <form method="post" action="{% url 'cadastro' %}">
+        {% csrf_token %}
+        <table class="table table-django">
+            {{ form }}
+        </table>
+        <input type="submit" class="btn btn-success">
+    </form>
+</div>
+{% endblock %}

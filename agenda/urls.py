@@ -18,9 +18,10 @@ from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
 
+
 urlpatterns = [
     path('', include('contatos.urls'), name='home'),
     path('enderecos/', include('enderecos.urls'), name='enderecos'),
+    path('accounts/', include('accounts.urls'), name='accounts'),
     path('admin/', admin.site.urls, name='painel'),
-
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
