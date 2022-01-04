@@ -1,5 +1,21 @@
 {% extends 'base.html' %}
 
+{% block titulo %} Login {% endblock %}
 {% block conteudo %}
-Login
+
+<main class="text-center container col-4">
+<form method="POST" action="{% url 'index_login' %}">
+    {% csrf_token %}
+    <div class="form-floating mb-2">
+        <input type="text" class="form-control" id="floatingInput" name="username" placeholder="name@example.com" required>
+        <label for="floatingInput">Usuário</label>
+    </div>
+    <div class="form-floating mb-2">
+        <input type="password" class="form-control" id="floatingPassword" name="password" placeholder="Senha" required>
+        <label for="floatingPassword">Senha</label>
+    </div>
+    <button class="w-100 btn btn-lg btn-primary mt-5" type="submit">Logar</button>
+</form>
+<p class="mt-5 mb-3 text-muted">© 2022</p>
+</main>
 {% endblock %}

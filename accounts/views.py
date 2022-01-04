@@ -1,10 +1,29 @@
-from django.shortcuts import render
-from django.contrib import messages
+from django.shortcuts import render, redirect
+from django.contrib import messages, auth
 from .models import FormUserCadastro, FormUser
 
 
 def login(request):
-    return render(request, 'accounts/login.html')
+    if request.method != 'POST':
+        return render(request, 'accounts/login.html')
+
+    usuario_email = request.POST.get('username')
+    senha = request.POST.get('password')
+
+    if usuario_email is None or senha is None:
+        messages.error(request, "Informe usuário e senha!")
+        return render(request, 'accounts/login.html')
+
+    user = auth.authenticate(request, username=usuario_email, password=senha)
+
+    if not user:
+        messages.error(request, "Usuário não autenticado, verifique os dados informados.")
+        return render(request, 'accounts/login.html')
+    else:
+        auth.login(request, user)
+        msg = f"Seja bem vindo {user.first_name} {user.last_name}!"
+        messages.success(request, msg)
+        return redirect('/')
 
 
 def cadastro(request):
@@ -26,4 +45,6 @@ def cadastro(request):
 
 
 def logout(request):
-    return render(request, 'accounts/logout.html')
+    auth.logout(request)
+    messages.warning(request, 'Logout Efetuado!')
+    return redirect("/accounts")
