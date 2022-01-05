@@ -3,6 +3,8 @@
 {% block titulo %} Login {% endblock %}
 {% block conteudo %}
 
+{% if not user.is_authenticated %}
+
 <main class="text-center container col-4">
 <form method="POST" action="{% url 'index_login' %}">
     {% csrf_token %}
@@ -16,6 +18,14 @@
     </div>
     <button class="w-100 btn btn-lg btn-primary mt-5" type="submit">Logar</button>
 </form>
-<p class="mt-5 mb-3 text-muted">© 2022</p>
+    <a href="{% url 'cadastro' %}" class="w-100 btn btn-lg btn-success mt-2">Cadastrar</a>
+<p class="mt-5 mb-3 text-muted">©2022</p>
 </main>
+{% else %}
+<h3 class="alert alert-danger text-center">
+    <p>Você está logado como <strong>{{ user }}</strong>, caso prefira <a href="{% url 'logout' %}" class="text-danger">clique aqui</a> para sair!</p>
+    <p>Para retornar ao <strong>Home</strong>, <a href="{% url 'index' %}"> clique aqui...</a></p>
+</h3>
+
+{% endif %}
 {% endblock %}

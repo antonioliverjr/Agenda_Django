@@ -8,10 +8,18 @@
     {% include 'parciais/_error_forms.html' %}
     <form method="post" action="{% url 'cadastro' %}">
         {% csrf_token %}
-        <table class="table table-django">
+        <table class="table table-django text-center">
             {{ form }}
         </table>
-        <input type="submit" class="btn btn-success align-center" value="Enviar Cadastro">
+        <div class="d-flex justify-content-center mt-2">
+            <div class="me-2">
+                <input type="submit" class="btn btn-success" value="Enviar Cadastro">    
+            </div>
+            <div>
+                <a href="{% url 'login' %}" class="btn btn-primary">Fazer Login</a>    
+            </div>
+        </div>
     </form>
+    
 </div>
 {% endblock %}

@@ -1,7 +1,13 @@
 {% extends 'base.html' %}
 
 {% block conteudo %}
-<h1 class="mt-5">Minha agenda</h1>
+<div class="d-flex justify-content-between mt-2">
+  <h1>Minha agenda</h1>
+  <div>
+    <a href="{% url 'inserir' %}" class="btn btn-primary">Inserir Contato</a>
+  </div>
+</div>
+
 
 <table class="table table-primary text-center">
   <thead>

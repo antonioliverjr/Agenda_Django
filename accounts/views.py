@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, HttpResponseRedirect
 from django.contrib import messages, auth
 from .models import FormUserCadastro, FormUser
 
@@ -47,4 +47,4 @@ def cadastro(request):
 def logout(request):
     auth.logout(request)
     messages.warning(request, 'Logout Efetuado!')
-    return redirect("/accounts")
+    return redirect('/')

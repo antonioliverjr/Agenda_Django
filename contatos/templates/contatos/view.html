@@ -28,12 +28,18 @@
     <dd>{{ contato.descricao }}</dd>
     {% endif %}
 
-    <dt>Endereço</dt>
-    <dd>Preencher</dd>
-    <dd>Preencher</dd>
-    <dd>Preencher</dd>
-    <dd>Preencher</dd>
-    <dd>Preencher</dd>
+    {% if endereco.cep %}
+        <dt>Endereço:</dt>
+        <dd>{{ endereco.logradouro }}</dd>
+        <dd>{{ endereco.complemento }}</dd>
+        <dd>{{ endereco.bairro }}</dd>
+        <dd>{{ endereco.uf }}</dd>
+        <dd>{{ endereco.cep }}</dd>
+    {% else %}
+        <div>
+            <a href="{% url 'endereco' contato.id %}" class="btn btn-primary">Inserir Endereço</a>
+        </div>
+    {% endif %}
 </dl>
 
 

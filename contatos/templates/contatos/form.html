@@ -2,6 +2,22 @@
 
 {% block conteudo %}
 
-
+<div class="container col-9">
+    {% include 'parciais/_error_forms.html' %}
+    <form method="post" action="{% url 'inserir' %}" enctype="multipart/form-data">
+        {% csrf_token %}
+        <table class="table table-django">
+            {{ form }}
+        </table>
+        <div class="d-flex justify-content-center mt-2">
+            <div class="me-2">
+                <input type="submit" class="btn btn-success" value="Salvar">
+            </div>
+            <div>
+                <a href="{% url 'index' %}" class="btn btn-secondary">Voltar</a>
+            </div>
+        </div>
+    </form>    
+</div>
 
 {% endblock %}
