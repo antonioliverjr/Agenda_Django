@@ -3,7 +3,7 @@
     <div class="container">
       <a class="navbar-brand" href="{% url 'index' %}">Agenda</a>
       <a class="navbar-brand" href="{% url 'cadastro' %}">Cadastro Usuário</a>
-      <a class="navbar-brand" href="{% url 'painel' %}">Painel Admin</a>
+      <a class="navbar-brand" href="/admin/">Painel Admin</a>
       <form method="get" action="{% url 'buscar' %}">
         <div class="form-outline">
           <input id="search" type="search" class="form-control" placeholder="Pesquisar" value="{{ termo }}" name="termo">

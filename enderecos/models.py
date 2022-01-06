@@ -1,4 +1,5 @@
 from django.db import models
+from django import forms
 from contatos.models import Contato
 
 class Endereco(models.Model):
@@ -13,3 +14,8 @@ class Endereco(models.Model):
     def __str__(self):
         self.endereco_contato = f'{self.nome_contato}-{self.cep}'
         return self.endereco_contato
+
+class FormEndereco(forms.ModelForm):
+    class Meta:
+        model = Endereco
+        exclude = ()
