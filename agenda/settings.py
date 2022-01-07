@@ -124,6 +124,7 @@ STATICFILES_DIRS = [
     ('static', BASE_DIR / 'templates/static'),
     ('node_modules', BASE_DIR / 'node_modules')
 ]
+
 MEDIA_ROOT = BASE_DIR / 'media'
 MEDIA_URL = 'media/'
 

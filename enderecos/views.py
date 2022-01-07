@@ -8,7 +8,6 @@ def get_endereco(request, id_contato):
     if request.method != 'POST':
         form = FormEndereco()
         form.fields['nome_contato'].initial = [id_contato]
-        print(form)
         return render(request, 'enderecos/form.html', {'form': form, 'id_contato': id_contato})
 
 

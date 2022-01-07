@@ -1,0 +1,102 @@
+/*
+ALTERAR: 2a3252 -> Cor do topo
+ALTERAR: ef5455 -> Cor dos links e cabeçalhos
+*/
+
+#branding h1,
+#branding h1 a,
+#branding h1 a:link,
+#branding h1 a:visited {
+    color: #06054d;
+}
+
+#header {
+    background: #75c8d6;
+    color: #06054d;
+}
+
+#user-tools a:focus, #user-tools a:hover {
+    border-bottom-color: #06054d;
+    color: #06054d;
+}
+
+a:link, a:visited {
+    color: #75c8d6;
+}
+
+.module h2, .module caption, .inline-group h2 {
+    background: #75c8d6;
+    color: #06054d;
+}
+
+div.breadcrumbs {
+    background: #75c8d6;
+    color: #06054d;
+}
+
+.paginator a:link, .paginator a:visited {
+    background: #75c8d6 !important;
+    color: #06054d;
+}
+
+.paginator a:hover {
+    background: #75c8d6 !important;
+    color: #06054d;
+}
+
+.button.default, input[type=submit].default, .submit-row input.default {
+    background: #0a8f15;
+    color: #ffffff;
+}
+
+.button.default:active,
+input[type=submit].default:active,
+.button.default:focus,
+input[type=submit].default:focus,
+.button.default:hover,
+input[type=submit].default:hover {
+    background: #75c8d6;
+}
+
+.object-tools a:focus, .object-tools a:hover {
+    background-color: #75c8d6;
+}
+
+.button, input[type=submit], input[type=button], .submit-row input, a.button {
+    background: #75c8d6;
+    color: #06054d;
+}
+.button:active,
+input[type=submit]:active,
+input[type=button]:active,
+.button:focus,
+input[type=submit]:focus,
+input[type=button]:focus,
+.button:hover,
+input[type=submit]:hover,
+input[type=button]:hover {
+    background-color: #75c8d6;
+}
+
+#changelist-filter li.selected a {
+    color: #75c8d6 !important;
+}
+
+#changelist-filter a:focus,
+#changelist-filter a:hover,
+#changelist-filter li.selected a:focus,
+#changelist-filter li.selected a:hover {
+    color: #75c8d6 !important;
+}
+
+.selector-chosen h2 {
+    background: #75c8d6 !important;
+    color: #06054d;
+}
+
+a.active.selector-chooseall:focus,
+a.active.selector-clearall:focus,
+a.active.selector-chooseall:hover,
+a.active.selector-clearall:hover {
+    color: #75c8d6 !important;
+}

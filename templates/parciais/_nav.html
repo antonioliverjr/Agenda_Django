@@ -1,7 +1,11 @@
+{% load static %}
   <!-- Navigation -->
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
+  <nav class="navbar navbar-expand-lg navbar-light bg-light static-top">
     <div class="container">
-      <a class="navbar-brand" href="{% url 'index' %}">Agenda</a>
+      <div>
+        <img src="{% static 'static/img/logo.png' %}" width="50" height="50" margin-right="10" />
+        <a class="navbar-brand h1" href="{% url 'index' %}">Agenda Python</a>
+      </div>
       <a class="navbar-brand" href="{% url 'cadastro' %}">Cadastro Usuário</a>
       <a class="navbar-brand" href="/admin/">Painel Admin</a>
       <form method="get" action="{% url 'buscar' %}">
@@ -9,7 +13,10 @@
           <input id="search" type="search" class="form-control" placeholder="Pesquisar" value="{{ termo }}" name="termo">
         </div>
       </form>
-      <a class="navbar-brand" href="{% url 'logout' %}">Sair</a>
+      <div>
+        <strong>{{ user.first_name }} {{ user.last_name }}</strong> /
+        <a class="navbar-brand fs-6 text-danger fw-bold" href="{% url 'logout' %}">Sair</a>
+      </div>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
         aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
